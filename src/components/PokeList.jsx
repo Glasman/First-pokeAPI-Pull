@@ -8,12 +8,9 @@ export default function PokeList() {
       const response = await fetch("https://pokeapi.co/api/v2/pokemon/");
       const pokeData = await response.json();
       setPokemon(pokeData.results);
-      
-      
     }
     fetchPokemon();
     console.log(pokemon);
-    
   }, []);
   return (
     <table>
@@ -22,14 +19,11 @@ export default function PokeList() {
           <th>PokeMon</th>
         </tr>
       </thead>
-      <tbody>{
-        
-        pokemon.map((pokedude) => {
-          return <PokeRow key = {pokedude.name} pokedude={pokedude} />
-        })
-           
-         
-        }</tbody>
+      <tbody>
+        {pokemon.map((pokedude) => {
+          return <PokeRow key={pokedude.name} pokedude={pokedude} />;
+        })}
+      </tbody>
     </table>
   );
 }
